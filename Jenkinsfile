@@ -11,6 +11,11 @@ pipeline {
         steps {
           sh 'cal'
 }
+       post {
+          success {
+               sh 'ehco "my name is ishan"'
+}
+}
 }
 
 }
