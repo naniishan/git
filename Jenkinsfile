@@ -13,7 +13,7 @@ pipeline {
 }
        post {
           success {
-               sh 'ehco "my name is ishan"'
+               sh 'echo "my name is ishan"'
 }
 }
 }
