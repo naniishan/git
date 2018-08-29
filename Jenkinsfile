@@ -10,6 +10,7 @@ pipeline {
        stage('sample') {
         steps {
           sh 'cal'
+         build 'java'
 }
        post {
           success {
