@@ -1,5 +1,9 @@
 pipeline {
    agent any
+parameters
+{
+stringParam('ishan', '')
+}
    stages {
        stage('hello world') {
         steps {
@@ -11,8 +15,9 @@ pipeline {
         steps {
           sh 'cal'
           sh 'echo "my name is ishan"'
-               sh 'ishan="$(./log.sh)" | echo $ishan'
-        mail bcc: '', body: 'my name is ishan', cc: '', from: '', replyTo: '', subject: 'broken builds', to: $ishan
+          $ishan = sh './log.sh'
+          
+       
 
          
 
