@@ -10,20 +10,19 @@ pipeline {
        stage('sample') {
         steps {
           sh 'cal'
-         build 'java'
-         
-
-         
-
-
-
-}
-       post {
-          success {
-               sh 'echo "my name is ishan"'
+          sh 'echo "my name is ishan"'
                sh 'ishan="$(./log.sh)" | echo $ishan'
+         mail bcc: '', body: 'my name is ishan', cc: '', from: '', replyTo: '', subject: 'broken builds', to: '$ishan'
+         
+
+         
+
+         
+
+
+
 }
-}
+       
 }
 
 }
