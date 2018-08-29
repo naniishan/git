@@ -11,7 +11,7 @@ pipeline {
         steps {
           sh 'cal'
          build 'java'
-         step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'ishan.waviz@gmail.com', sendToIndividuals: false])
+         
 
          
 
@@ -21,7 +21,7 @@ pipeline {
        post {
           success {
                sh 'echo "my name is ishan"'
-               sh './log.sh'
+               sh 'ishan="$(./log.sh)" | echo $ishan'
 }
 }
 }
