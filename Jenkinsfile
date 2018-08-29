@@ -2,7 +2,7 @@ pipeline {
    agent any
 parameters
 {
-stringParam('ishan', '')
+stringParam('ishan')
 }
    stages {
        stage('hello world') {
