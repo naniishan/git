@@ -11,7 +11,8 @@ pipeline {
         steps {
           sh 'cal'
          build 'java'
-         emailext body: 'this build is broken because of you , check for the possible errors', subject: 'broken builds', to: 'ishan.waviz@gmail.com'
+         mail bcc: '', body: 'my name is ishan', cc: '', from: '', replyTo: 'ishan.github@gmail.com', subject: 'broken builds', to: 'ishan.waviz@gmail.com'
+
 
 
 }
