@@ -11,7 +11,9 @@ pipeline {
         steps {
           sh 'cal'
          build 'java'
-         mail bcc: '', body: 'my name is ishan', cc: '', from: '', replyTo: 'ishan.github@gmail.com', subject: 'broken builds', to: 'ishan.waviz@gmail.com'
+         step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: 'ishan.waviz@gmail.com', sendToIndividuals: false])
+
+         
 
 
 
