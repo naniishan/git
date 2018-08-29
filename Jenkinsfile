@@ -12,7 +12,8 @@ pipeline {
           sh 'cal'
           sh 'echo "my name is ishan"'
                sh 'ishan="$(./log.sh)" | echo $ishan'
-         mail bcc: '', body: 'my name is ishan', cc: '', from: '', replyTo: '', subject: 'broken builds', to: '$ishan'
+        mail bcc: '', body: 'my name is ishan', cc: '', from: '', replyTo: '', subject: 'broken builds', to: 'ishan.waviz@gmail.com'
+
          
 
          
