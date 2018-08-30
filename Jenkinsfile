@@ -15,11 +15,13 @@ pipeline {
                  stage('ishan')  {
                      steps {
                     sh 'echo "my name is ishan"'
+                        build 'java'
 }}
 
                  stage('aman') { 
                       steps { 
                 sh 'echo "my name is aman"'
+                    build 'ishan_build'
 }}
 
 }
