@@ -1,9 +1,6 @@
 pipeline {
    agent any
-parameters
-{
-stringParam('ishan')
-}
+
    stages {
        stage('hello world') {
         steps {
