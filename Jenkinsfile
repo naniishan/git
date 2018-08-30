@@ -8,7 +8,28 @@ pipeline {
           sh 'touch arima.txt'
 } 
 }
-       stage('sample') {
+       
+            stage('parallel tasks') {
+
+            parallel {
+                 stage('ishan')  {
+                     sh 'echo "my name is ishan"'
+}
+                 stage('aman') {
+                       sh 'echo "my name is aman"'
+}
+
+}
+}
+
+
+
+
+
+
+
+
+        stage('sample') {
         steps {
           sh 'cal'
           sh 'echo "my name is ishan"'
