@@ -16,6 +16,7 @@ stringParam('ishan')
           sh 'cal'
           sh 'echo "my name is ishan"'
           $ishan = sh './log.sh'
+          input('do you want to proceed?')
           
        
 
