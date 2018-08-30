@@ -12,12 +12,12 @@ pipeline {
             stage('parallel tasks') {
 
             parallel {
-                 stage('ishan')  {
+                 stage('ishan')  
                      sh 'echo "my name is ishan"'
-}
-                 stage('aman') {
+
+                 stage('aman') 
                        sh 'echo "my name is aman"'
-}
+
 
 }
 }
