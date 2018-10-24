@@ -11,7 +11,23 @@
      - name: restart tomcat8
        service: name=tomcat8 state=restarted
 
+     - name: health checks
+       uri:
+        url: http://52.15.230.9:8181/java-tomcat-maven-example/
+        register: result
+        until: result.status == 200
+       when: ansible_eth0.ipv4.address == "172.31.16.209"
+
+
+
+
+     - name: health checks
+       uri:
+        url: http://18.219.111.15:8181/java-tomcat-maven-example/
+        register: result
+        until: result.status == 200
+       when: ansible_eth0.ipv4.address == "172.31.21.242"
+
+
 ...
 
-
-   
