@@ -1,0 +1,17 @@
+---
+ - name: deployment
+   hosts: all
+   become: yes
+   tasks:
+     - name: copy the artifact to the tomcat webapps
+       shell: cp *.war /var/lib/tomcat8/webapps/
+       args:
+        chdir: /home/ubuntu/git/target
+
+     - name: restart tomcat8
+       service: name=tomcat8 state=restarted
+
+...
+
+
+   

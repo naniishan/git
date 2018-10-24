@@ -1,0 +1,33 @@
+---
+ - hosts: all
+   become: yes
+   tasks: 
+    - name: download maven and git
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+       - git
+       - maven
+
+    - name: create git folder
+      file: path=/home/ubuntu/git state=directory mode=0755
+
+    - name: download the repo
+      git: repo=https://github.com/daticahealth/java-tomcat-maven-example.git clone=yes dest=/home/ubuntu/git
+
+    - name: build the package
+      shell: mvn clean package
+      args:
+       chdir: /home/ubuntu/git/
+
+    - name: copy the artifact to the tomcat webapps
+      shell: cp *.war /var/lib/tomcat8/webapps/
+      args:
+       chdir: /home/ubuntu/git/target
+
+    - name: restart tomcat8
+      service: name=tomcat8 state=restarted
+
+
+   
+ 
+ 

@@ -1,7 +1,0 @@
----
- - hosts: all
-   become: yes
-   tasks: 
-      
-      - name: install cmatrix
-        apt: name=cmatrix state=present update_cache=yes

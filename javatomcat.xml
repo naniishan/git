@@ -1,0 +1,25 @@
+---
+ - hosts: all
+   become: yes
+   tasks:
+    - name: Add repo for java
+      apt_repository: 
+               repo: ppa:webupd8team/java
+               state: present
+               filename: /home/ubuntu/java
+   
+    - name: download java
+      apt: name=oracle-java8-installer update_cache=yes state=present
+
+    - name: set homevarible path
+      shell: export JAVA_HOME="/usr/lib/jvm/java-8-oracle"
+
+    # DOWNLOAD TOMCAT8
+
+    - name: download tomcat8
+      apt: name=tomcat8 state=present update_cache=yes
+
+    - name: start tomcat
+      service: name=tomcat8 state=restarted 
+      
+  
